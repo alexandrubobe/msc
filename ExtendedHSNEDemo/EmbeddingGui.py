@@ -288,7 +288,7 @@ class EmbeddingGui(FigureCanvas):
             # print(landmark_orig_indexes[index])
             x, y = self.embedding[index]
             # img_path = f"C:\\Users\\alexa\\Desktop\\frame_000000000{index%2 + 1}.jpg"  # Replace with the actual path to your image
-            img_path = f"C:\\Users\\alexa\\Desktop\\EPIC-Kitchen100\\Frames_val\\{landmark_orig_indexes[index]}.jpg"
+            img_path = f"C:\\Users\\alexa\\Desktop\\Thumos14\\Frames\\{landmark_orig_indexes[index]}.jpg"
             img = plt.imread(img_path)
             imagebox = OffsetImage(img, zoom=0.5, resample=True, alpha=0.8)
             ab = AnnotationBbox(imagebox, (x, y), frameon=False, pad=0)
@@ -529,7 +529,7 @@ class EmbeddingViewer(QtWidgets.QWidget):
                 if len(self.selection_list) > 0:
                     self.on_selection_callback(self.selection_list, False)
             else:
-                image_path = f"C:\\Users\\alexa\\Desktop\\EPIC-Kitchen100\\Frames_val\\{landmark_orig_indexes[indexes[-1]]}.jpg"
+                image_path = f"C:\\Users\\alexa\\Desktop\\Thumos14\\Frames\\{landmark_orig_indexes[indexes[-1]]}.jpg"
                 img = plt.imread(image_path)
                 self.image_viewer.display_image(img)
                 self.on_selection_callback(indexes, False)
@@ -561,10 +561,10 @@ class EmbeddingViewer(QtWidgets.QWidget):
         # self.image_widget.set_selection_alpha(mask)
 
     def update_annotation_file(self, indexes, landmark_orig_indexes, name_anno):
-        path_to_placeholder_file = "C:\\Users\\alexa\\Desktop\\EPIC-Kitchen100\\Val_set_hsne\\annotation_file_placeholder.json"
-        path_to_annotation_file = "C:\\Users\\alexa\\Desktop\\EPIC-Kitchen100\\Val_set_hsne\\annotation_file.json"
-        path_to_metadata = "C:\\Users\\alexa\\Desktop\\EPIC-Kitchen100\\Val_set_hsne\\anno_val_set_segm.csv"
-        interval_features = 0.5333
+        path_to_placeholder_file = "C:\\Users\\alexa\\Desktop\\Thumos14\\annotation_file_placeholder.json"
+        path_to_annotation_file = "C:\\Users\\alexa\\Desktop\\Thumos14\\annotation_file.json"
+        path_to_metadata = "C:\\Users\\alexa\\Desktop\\Thumos14\\labels_test_set.csv"
+        interval_features = 0.1333
         dataframe = pd.read_csv(path_to_metadata, header=0)
         number_of_videos = len(np.unique(dataframe["video_label"]))
         video_names = np.unique(dataframe["video_label"])
